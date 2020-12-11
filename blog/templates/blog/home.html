@@ -1,1 +1,12 @@
 <h1>Sports curiosities</h1>
+<h3>Available post{{posts.count|pluralize}}: {{posts.count}}</h3>
+{%for post in posts%}
+<a href="{% url 'detail' post.id %}">{{post.title}}</a>
+
+<br>
+{{post.date|date:"d F Y"}}
+<br>
+{{post.text|truncatechars:50}}
+<br>
+<br>
+{%endfor%}
